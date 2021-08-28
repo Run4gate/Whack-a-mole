@@ -26,11 +26,13 @@ function randomHole (holes) {
      lastHole = hole
      return hole
 }
+
 function playSound() {
     let audio = new Audio()
     audio.src = '/audio/audio1.mp3'
     audio.autoplay = true
 }
+
 moles.forEach(mole => mole.addEventListener('click', playSound))
 function trigger() {
 const time = randomTime(200, (1000 / (level * 0.5)))
@@ -42,6 +44,7 @@ setTimeout(() => {
     trigger()
 }, time)
 }
+
 function startGame() {
     scoreBoard.textContent = 0
     timeUp = false
@@ -52,12 +55,14 @@ function startGame() {
     setTimeout(() => recording(), 10000)
     setTimeout(() => saveGame(), 10000)
 }
+
 function restartGame() {
     score = 0
     level = 1
     scoreBoard.textContent = 0
     levelBoard.textContent = 1
 }
+
 function loadGame() {
     score = Number(localStorage.getItem('score'))
     scoreBoard.textContent = score
@@ -70,6 +75,7 @@ function loadGame() {
     recordLevel = Number(localStorage.getItem('recordLevel'))
     recordBoard2.textContent = recordLevel
 }
+
 function hit (e) {
     if (!e.isTrusted) return // someone's hands are dirty
 
@@ -78,6 +84,7 @@ function hit (e) {
  scoreBoard.textContent = score
  return score
 }
+
 moles.forEach(mole => mole.addEventListener('click', hit))
 function progress () {
     if (score > 10) {
@@ -88,6 +95,7 @@ function progress () {
         levelBoard.textContent = level
     }
 }
+
 function recording () {
     if (recordLevel < level) {
         recordLevel = level 
@@ -101,6 +109,7 @@ function recording () {
       }
     }
 }
+
 function saveGame () {
 localStorage.setItem('score', score)
 localStorage.setItem('level', level)
