@@ -1,0 +1,86 @@
+html {
+    box-sizing: border-box;
+    font-size: 10px;
+    background: darkolivegreen;
+  }
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  
+  body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Amatic SC', cursive;
+  }
+  
+  h1 {
+    text-align: center;
+    font-size: 5rem;
+    line-height: 75px;
+    margin-bottom: 0;
+  }
+  
+  .score, .level, .record, .record-level {
+    background: rgba(255,255,255,0.2);
+    padding: 0 3rem;
+    line-height: 1;
+    border-radius: 1rem;
+  }
+  
+  .game {
+    width: 600px;
+    height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+  }
+  .controls {
+    display: flex;
+    width: 800px;
+    margin: 0 auto;
+  }
+  button {
+      padding: 30px;
+      display: flex;
+      margin: 50px auto;
+      background-color: black;
+      color: white;
+      font-family: 'Amatic SC', cursive;
+      line-height: 40px;
+      font-size: 30px;
+      border: dimgrey 5px solid;
+      border-radius: 10px;
+      cursor: pointer;
+  }
+  .hole {
+    flex: 1 0 33.33%;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .hole:after {
+    display: block;
+    background: url(/images/dirt.svg) bottom center no-repeat;
+    background-size: contain;
+    content: '';
+    width: 100%;
+    height:70px;
+    position: absolute;
+    z-index: 2;
+    bottom: -30px;
+  }
+  
+  .mole {
+    background: url(/images/CJ.png) bottom center no-repeat;
+    background-size: 60%;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    height: 100%;
+    transition: all 0.4s;
+  }
+  
+  .hole.up .mole {
+    top: 0;
+  }
